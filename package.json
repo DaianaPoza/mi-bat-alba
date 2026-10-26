@@ -8,8 +8,8 @@
     "build": "vite build",
     "lint": "oxlint",
     "preview": "vite preview",
-     "predeploy": "npm run build",
-  "deploy": "gh-pages -d dist -r https://github.com/DaianaPoza/DaianaPoza.github.io.git -b main -e mi-bat-alba -m \"Deploy Mi Bat Alba\""
+    "predeploy": "npm run build",
+"deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "react": "^19.3.1",

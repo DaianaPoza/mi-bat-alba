@@ -1,0 +1,74 @@
+/* ================= DRESS CODE ================= */
+
+.dress {
+  background: var(--celeste-fondo);
+  overflow: hidden;
+}
+
+/* ---- Flores: un ramito arriba a la derecha y una ramita abajo a la izquierda ---- */
+.dress__ramo,
+.dress__ramita {
+  position: absolute;
+  height: auto;
+  pointer-events: none;
+}
+
+.dress__ramo {
+  top: 0;
+  right: 0;
+  width: clamp(130px, 34vw, 300px);
+}
+
+.dress__ramita {
+  bottom: 0;
+  left: 0;
+  width: clamp(100px, 20vw, 220px);
+  transform: scaleX(-1);
+}
+
+/* ---- Contenido ---- */
+.dress .contenido {
+  /* arriba deja lugar para el ramito, así nunca tapa el título */
+  padding: calc(clamp(130px, 34vw, 300px) * 0.55) 0 clamp(2rem, 8vw, 3.5rem);
+}
+
+.dress__icono {
+  width: 84px;
+  height: 42px;
+  margin: 0 auto 0.5rem;
+  fill: none;
+  stroke: var(--azul-medio);
+  stroke-width: 0.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.dress__estilo {
+  font-size: clamp(1.6rem, 6vw, 2.2rem);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--azul-profundo);
+  white-space: nowrap;
+}
+
+/* Aclaración sutil: chica, en cursiva y en plateado */
+.dress__nota {
+  margin-top: 1.4rem;
+  font-size: clamp(1.1rem, 3.4vw, 1.15rem);
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--plateado-oscuro);
+}
+
+.dress__nota span {
+  color: var(--azul-medio);
+  font-weight: 600;
+}
+
+/* En pantallas anchas el ramito queda lejos del texto: no hace falta reservarle lugar */
+@media (min-width: 900px) {
+  .dress .contenido {
+    padding-top: clamp(2rem, 8vw, 3.5rem);
+  }
+}

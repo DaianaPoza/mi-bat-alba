@@ -1,0 +1,261 @@
+/* ==========================================================
+   MI BAT ALBA — Estilos generales
+   Paleta: celeste · blanco · plateado · azul
+   Tipografías: Pinyon Script (títulos manuscritos)
+                Cormorant Garamond (texto en imprenta)
+                Frank Ruhl Libre (detalle en hebreo)
+   ========================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Dancing+Script:wght@400;500;600;700&display=swap');
+:root {
+  /* ---- Colores ---- */
+  --azul-profundo: #1d3a6e;
+  --azul: #2f5b9e;
+  --azul-medio: #4a78bd;
+  --celeste: #a9cbef;
+  --celeste-suave: #e7f2fd;
+    --celeste-fondo: #ebf6fe; /* el celeste de los fondos con flores */
+  --blanco: #ffffff;
+  --plateado: #b9c2ce;
+  --plateado-claro: #e9edf2;
+  --plateado-oscuro: #6f7b8c;
+
+  /* Degradados */
+  --grad-plata: linear-gradient(100deg, #8e99a8 0%, #dfe5ec 35%, #ffffff 50%, #c3cbd6 65%, #8e99a8 100%);
+  --grad-azul: linear-gradient(120deg, var(--azul-profundo) 0%, var(--azul) 45%, var(--azul-medio) 100%);
+
+  /* ---- Tipografías ---- */
+ --font-script: 'Dancing Script', cursive;
+  --font-texto: 'Cormorant Garamond', Georgia, serif;
+
+
+  /* ---- Medidas ---- */
+  --ancho-contenido: 640px;
+  --espacio-seccion: clamp(4rem, 10vw, 7rem);
+  --sombra-texto: 0 1px 12px rgba(255, 255, 255, 0.9);
+}
+
+/* ---------- Reset ---------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-texto);
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: var(--azul-profundo);
+  background: var(--blanco);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* ---------- Clases reutilizables ---------- */
+
+/* Sección base: fondo vertical en pantallas altas, horizontal en apaisadas.
+   Cada componente define --bg-v y --bg-h con sus imágenes. */
+.seccion {
+  position: relative;
+  width: 100%;
+  padding: var(--espacio-seccion) 1.25rem;
+  background-color: var(--blanco);
+  background-image: var(--bg-v);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@media (min-aspect-ratio: 1/1) {
+  .seccion {
+    background-image: var(--bg-h, var(--bg-v));
+  }
+}
+
+.contenido {
+  position: relative;
+  z-index: 1;
+  max-width: var(--ancho-contenido);
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Títulos manuscritos */
+.titulo-script {
+  font-family: var(--font-script);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--azul);
+  font-size: clamp(2.6rem, 9vw, 4rem);
+}
+
+/* Etiquetas en imprenta, mayúsculas espaciadas */
+.etiqueta {
+  font-family: var(--font-texto);
+  font-weight: 500;
+  font-size: 0.85rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--plateado-oscuro);
+}
+
+/* Texto plateado con brillo */
+.texto-plata {
+  background: var(--grad-plata);
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: brillo-plata 6s ease-in-out infinite;
+}
+
+/* Línea divisoria plateada */
+.divisor-plata {
+  width: min(220px, 60%);
+  height: 1px;
+  margin: 1.2rem auto;
+  background: var(--grad-plata);
+  background-size: 250% 100%;
+  animation: brillo-plata 6s ease-in-out infinite;
+}
+
+
+/* Botón general (Cómo llegar, Confirmar asistencia, Álbum...) */
+.boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.85rem 2rem;
+  font-family: var(--font-texto);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--blanco);
+  background: var(--grad-azul);
+  border: none;
+  border-radius: 999px;
+  box-shadow: 0 8px 22px rgba(29, 58, 110, 0.25), inset 0 0 0 1px rgba(255, 255, 255, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.boton:hover,
+.boton:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(29, 58, 110, 0.32), inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+}
+
+.boton:focus-visible {
+  outline: 2px solid var(--celeste);
+  outline-offset: 3px;
+}
+
+.boton svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ---------- Animaciones ---------- */
+@keyframes aparecer-arriba {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes aparecer {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes brillo-plata {
+  0%, 100% { background-position: 100% 0; }
+  50% { background-position: 0% 0; }
+}
+
+@keyframes flotar {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+
+.anim-entrada {
+  opacity: 0;
+  animation: aparecer-arriba 1.1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: var(--delay, 0s);
+}
+
+
+
+/* Aparece al hacer scroll (se usa con el hook useRevelar) */
+.revelar {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease, transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.revelar.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
+
+
+
+
+@media (prefers-reduced-motion: reduce) {
+    .revelar { opacity: 1; transform: none; transition: none; }
+  html { scroll-behavior: auto; }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    animation-delay: 0s !important;
+  }
+}

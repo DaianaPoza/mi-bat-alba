@@ -1,0 +1,54 @@
+/* ================= ÁLBUM COMPARTIDO ================= */
+
+.album {
+  background: var(--blanco);
+  overflow: hidden;
+  --ancho-arriba: min(46vw, 260px);
+  --ancho-abajo: min(78vw, 420px);
+}
+
+/* ---- Flores: ramillete centrado arriba (colgando) y abajo (creciendo) ---- */
+.album__ramillete {
+  position: absolute;
+  left: 50%;
+  height: auto;
+  pointer-events: none;
+}
+
+.album__ramillete--arriba {
+  top: 0;
+  width: var(--ancho-arriba);
+  transform: translateX(-50%) rotate(180deg);
+  opacity: 0.85;
+}
+
+.album__ramillete--abajo {
+  bottom: 0;
+  width: var(--ancho-abajo);
+  transform: translateX(-50%);
+}
+
+/* ---- Contenido ---- */
+.album .contenido {
+  /* reserva el alto de cada ramillete (alto = 0.46 del ancho) para que nunca toquen el texto */
+  padding-top: calc(var(--ancho-arriba) * 0.46);
+  padding-bottom: calc(var(--ancho-abajo) * 0.46 + 0.5rem);
+}
+
+.album__icono {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto 0.4rem;
+  fill: none;
+  stroke: var(--azul-medio);
+  stroke-width: 1.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.album__texto {
+  max-width: 30ch;
+  margin: 0 auto 2rem;
+  font-size: clamp(1.1rem, 3.8vw, 1.3rem);
+  color: var(--azul);
+}

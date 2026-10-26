@@ -1,0 +1,64 @@
+/* ================= UBICACIÓN ================= */
+
+.ubicacion {
+  background: var(--blanco);
+  overflow: hidden;
+}
+
+/* ---- Ramitas: esquinas contrarias a la cuenta regresiva ---- */
+.ubicacion__ramita {
+  position: absolute;
+  width: clamp(110px, 22vw, 230px);
+  height: auto;
+  pointer-events: none;
+}
+
+.ubicacion__ramita--arriba {
+  top: 0;
+  right: 0;
+  transform: scaleY(-1); /* espejada hacia abajo */
+}
+
+.ubicacion__ramita--abajo {
+  bottom: 0;
+  left: 0;
+  transform: scaleX(-1); /* espejada hacia la izquierda */
+}
+
+.ubicacion .contenido {
+  padding: clamp(2rem, 8vw, 3.5rem) 0;
+}
+
+/* ---- Contenido ---- */
+.ubicacion__icono {
+  width: 34px;
+  height: 34px;
+  margin: 0 auto 0.4rem;
+  fill: none;
+  stroke: var(--azul-medio);
+  stroke-width: 1.3;
+}
+
+.ubicacion__salon {
+  margin-top: 0.4rem;
+  /* siempre en una sola línea: la letra se achica sola según el ancho de pantalla */
+  white-space: nowrap;
+  font-size: min(2.3rem, calc((100vw - 2.5rem) / 13.5));
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  line-height: 1.2;
+  color: var(--azul-profundo);
+}
+
+.ubicacion__direccion {
+  margin: 0.3rem 0 2rem;
+  font-size: clamp(1.15rem, 4vw, 1.35rem);
+  color: var(--azul);
+}
+
+@media (min-width: 900px) {
+  .ubicacion__ramita {
+    width: clamp(200px, 18vw, 300px);
+  }
+}

@@ -1,0 +1,189 @@
+/* ================= HERO =================
+   Las flores son imágenes dentro del flujo de la página (no un fondo),
+   así el texto siempre queda entre las flores de arriba y las de abajo
+   y nunca se superponen, en ningún tamaño de pantalla.
+   ========================================= */
+
+.hero {
+  position: relative;
+  min-height: 90vh;
+  min-height: 90svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--blanco);
+  overflow: hidden;
+}
+
+/* ---- Flores ---- */
+.hero__flores-arriba,
+.hero__flores-abajo {
+  display: block;
+  pointer-events: none;
+}
+
+.hero__flores-arriba img,
+.hero__flores-abajo img {
+  width: 100%;
+  height: auto;
+  mix-blend-mode: multiply; /* el blanco de la imagen se funde con el fondo */
+}
+
+.hero__flores-arriba {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: min(42vw, 260px);
+  opacity: 0;
+  animation: aparecer 1.4s ease 0.1s forwards;
+}
+
+.hero__flores-abajo {
+  width: 100%;
+  margin-top: auto; /* empuja las flores al fondo de la sección */
+  opacity: 0;
+  animation: aparecer 1.4s ease 0.1s forwards;
+}
+
+/* ---- Contenido ---- */
+.hero__contenido {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* deja libre el alto de las flores de arriba */
+  padding-top: calc(min(42vw, 260px) * 0.8);
+  padding-bottom: 1.5rem;
+  padding-inline: 1rem;
+  /* Las flores de abajo pueden subir solo hasta el hueco vacío del centro.
+     Margen negativo = cuánto pueden subir como máximo. */
+  margin-bottom: -8vw;
+}
+
+/* ---- Textos ---- */
+.hero__subtitulo {
+  font-size: clamp(2rem, 7vw, 2.8rem);
+  color: var(--azul-medio);
+  margin-bottom: 2rem;
+}
+
+.hero__nombre {
+  font-family: var(--font-script);
+  font-weight: 400;
+  font-size: clamp(5rem, 24vw, 8.5rem);
+  line-height: 0.95;
+  padding: 0 0.15em 0.1em; /* evita que se corten los trazos del manuscrito */
+  background: var(--grad-azul);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ---- Fecha ---- */
+.hero__fecha {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.1rem;
+  color: var(--azul);
+}
+
+.hero__fecha-lado {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  padding: 0.35rem 0;
+  border-top: 1px solid var(--plateado);
+  border-bottom: 1px solid var(--plateado);
+  min-width: 5.6rem;
+}
+
+.hero__fecha-dia {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1;
+}
+
+.hero__fecha-numero {
+  font-size: 3.4rem;
+  font-weight: 500;
+  color: var(--azul-profundo);
+}
+
+.hero__fecha-mes {
+  font-family: var(--font-script);
+  font-size: 1.6rem;
+  color: var(--azul-medio);
+  margin-top: 0.3rem;
+}
+
+.hero__anio {
+  margin-top: 0.5rem;
+  font-size: 1.25rem;
+}
+
+/* ---- Indicador para deslizar ---- */
+.hero__deslizar {
+  position: absolute;
+  bottom: 1.4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--azul-profundo);
+  background: rgba(255, 255, 255, 0.85);
+  padding: 0.5rem 1rem 0.5rem 1.3rem;
+  border-radius: 999px;
+  box-shadow: 0 4px 18px rgba(29, 58, 110, 0.12);
+  opacity: 0;
+  animation: aparecer 1s ease 2s forwards;
+}
+
+.hero__deslizar svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  animation: flotar 1.8s ease-in-out infinite;
+}
+
+/* ---- Celulares chicos (ej. iPhone SE) ---- */
+@media (max-width: 380px) {
+  .hero__fecha { gap: 0.7rem; }
+  .hero__fecha-lado { min-width: 4.8rem; letter-spacing: 0.2em; }
+}
+
+/* ---- Tablets verticales ---- */
+@media (min-width: 600px) and (max-aspect-ratio: 1/1) {
+  .hero__contenido { margin-bottom: -16vw; }
+}
+
+/* ---- Pantallas apaisadas: tablets horizontales, laptops y desktop ---- */
+@media (min-aspect-ratio: 1/1) {
+  .hero__flores-arriba {
+    width: min(26vw, 440px);
+  }
+
+  /* El centro de las flores de abajo es más bajo que los costados:
+     el texto puede "meterse" en ese hueco sin tocar ninguna flor. */
+  .hero__contenido {
+    padding-top: clamp(2.5rem, 7svh, 5rem);
+    padding-bottom: 0;
+    margin-bottom: -12vw;
+  }
+
+  .hero__nombre {
+    font-size: clamp(5rem, 10vw, 9rem);
+  }
+}

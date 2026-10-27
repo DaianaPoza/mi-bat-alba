@@ -1,0 +1,91 @@
+/* ================= FOOTER =================
+   Fondo blanco como el hero (alterna con el celeste de la confirmación),
+   mismas letras y colores: azul, celeste y plateado.
+   ========================================== */
+
+.pie {
+  padding: clamp(2.2rem, 7vw, 3.2rem) 1.25rem clamp(1.8rem, 5vw, 2.4rem);
+  text-align: center;
+  background: var(--blanco);
+}
+
+.pie__contenido {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* Ramillete con sus colores originales */
+.pie__ramillete {
+  width: min(42vw, 180px);
+  height: auto;
+  margin: 0 auto 0.6rem;
+}
+
+/* Frase en manuscrita, como "Mi Bat" del hero */
+.pie__frase {
+  font-size: clamp(1.5rem, 5.5vw, 2rem);
+  color: var(--azul-medio);
+  margin-top: 0.5rem;
+}
+
+/* "Alba" igual que en el hero: manuscrita con degradé azul */
+.pie__nombre {
+  font-family: var(--font-script);
+  font-size: clamp(3.4rem, 14vw, 4.6rem);
+  line-height: 1.05;
+  padding: 0 0.15em 0.08em; /* evita que se corten los trazos del manuscrito */
+  background: var(--grad-azul);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-top: 0.5rem;
+}
+
+.pie__divisor {
+  margin: 0.6rem auto 0.7rem;
+}
+
+.pie__fecha {
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.4em;
+  padding-left: 0.4em; /* compensa el espaciado para que quede centrado */
+  color: var(--azul);
+}
+
+/* Botón redondo para volver arriba */
+.pie__arriba {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  margin: 1.2rem auto 0;
+  border: 1px solid var(--plateado);
+  border-radius: 50%;
+  color: var(--azul);
+  background: var(--blanco);
+  box-shadow: 0 4px 14px rgba(29, 58, 110, 0.1);
+  transition: background 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+}
+
+.pie__arriba:hover,
+.pie__arriba:focus-visible {
+  background: var(--celeste-fondo);
+  border-color: var(--azul-medio);
+  transform: translateY(-3px);
+}
+
+.pie__arriba:focus-visible {
+  outline: 2px solid var(--celeste);
+  outline-offset: 3px;
+}
+
+.pie__arriba svg {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}

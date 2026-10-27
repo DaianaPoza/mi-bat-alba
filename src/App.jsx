@@ -5,7 +5,7 @@ import Ubicacion from './components/Ubicacion/Ubicacion';
 import DressCode from './components/DressCode/DressCode';
 import Album from './components/Album/Album';
 import Confirmacion from './components/Confirmacion/Confirmacion';
-
+import Footer from './components/Footer/Footer';
 
 
 function App() {
@@ -17,6 +17,7 @@ function App() {
       <DressCode />
       <Album />
       <Confirmacion />
+      <Footer />
      
     </main>
   );

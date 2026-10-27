@@ -3,7 +3,7 @@ import useRevelar from '../../hooks/useRevelar';
 import ramillete from '../../assets/fondos/ramillete-centro.webp';
 
 /* Pegar acá el link del álbum compartido */
-const LINK_ALBUM = 'PEGAR_LINK_DEL_ALBUM';
+const LINK_ALBUM = 'https://www.elgrandia.events/album/mi-bat-alba';
 
 function Album() {
   const refContenido = useRevelar();

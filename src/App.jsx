@@ -4,6 +4,7 @@ import CuentaRegresiva from './components/CuentaRegresiva/CuentaRegresiva';
 import Ubicacion from './components/Ubicacion/Ubicacion';
 import DressCode from './components/DressCode/DressCode';
 import Album from './components/Album/Album';
+import Confirmacion from './components/Confirmacion/Confirmacion';
 
 
 
@@ -15,7 +16,8 @@ function App() {
       <Ubicacion />
       <DressCode />
       <Album />
-      {/* Próximas secciones: CuentaRegresiva, Fiesta, DressCode, Album, Confirmacion */}
+      <Confirmacion />
+     
     </main>
   );
 }

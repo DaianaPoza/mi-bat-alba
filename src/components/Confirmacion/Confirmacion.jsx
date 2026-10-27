@@ -137,14 +137,7 @@ function Confirmacion() {
     }
   };
 
-  const nuevaConfirmacion = () => {
-    setNombre('');
-    setAsistencia('');
-    setPersonas([]);
-    setMensaje('');
-    setError('');
-    setResultado(null);
-  };
+
 
   return (
     <section className="seccion confirmacion" id="confirmacion">
@@ -182,9 +175,7 @@ function Confirmacion() {
                 : 'Registramos que no vas a poder asistir. ¡Te vamos a extrañar!'}
             </p>
 
-            <button type="button" className="gracias__otra" onClick={nuevaConfirmacion}>
-              Enviar otra confirmación
-            </button>
+          
           </div>
         ) : (
           <>

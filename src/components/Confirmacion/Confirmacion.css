@@ -355,22 +355,7 @@
   font-size: 1.15rem;
 }
 
-.gracias__otra {
-  margin-top: 1.2rem;
-  padding: 0.6rem 1.2rem;
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--azul);
-  background: transparent;
-  border: 1px solid var(--plateado);
-  border-radius: 999px;
-}
 
-.gracias__otra:hover {
-  border-color: var(--azul-medio);
-}
 
 /* En pantallas anchas el ramito queda lejos del texto */
 @media (min-width: 1200px) {

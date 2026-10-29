@@ -18,7 +18,7 @@ function Hero() {
 
       <div className="contenido hero__contenido">
         <p className="hero__subtitulo titulo-script anim-entrada" style={{ '--delay': '0.3s' }}>
-          Mi Bat
+          Mi Bat Mitzvá
         </p>
 
         <h1 className="hero__nombre anim-entrada" style={{ '--delay': '0.6s' }}>
